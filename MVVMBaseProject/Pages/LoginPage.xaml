@@ -1,0 +1,63 @@
+﻿<Page x:Class="MVVMBaseProject.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MVVMBaseProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="700"
+      Title="LoginPage">
+
+    <Border>
+        <Grid>
+
+            <!-- Main content scroll -->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <StackPanel 
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    TextBlock.TextAlignment="Center">
+
+                    <!-- Login main content white box -->
+                    <Border Background="{StaticResource ForegroundLightBrush}" 
+                            CornerRadius="{Binding WindowCornerRadius, FallbackValue=4}"
+                            Padding="15 50 15 15"
+                            Width="330"
+                            Margin="50 50 50 0">
+
+                        <StackPanel Orientation="Vertical">
+
+                            <!-- Sign Up header -->
+                            <TextBlock Text="Identification" 
+                                   FontSize="{StaticResource FontSizeXXLarge}" 
+                                   FontFamily="{StaticResource FontRegular}"
+                                   Foreground="{StaticResource BackgroundBlueBrush}" />
+
+                            <!-- Sign up subtext-->
+                            <TextBlock Text="Login :" 
+                                       FontSize="{StaticResource FontSizeLarge}"
+                                       Foreground="{StaticResource ForegroundDarkBrush}"
+                                       Margin="0 0 0 20"
+                                       />
+
+                            <!-- Email -->
+                            <TextBox
+                                Text="" 
+                                     Tag="Email" />
+
+                            <!-- Password -->
+                            <PasswordBox x:Name="PasswordText" Tag="Mot de passe" Margin="0 0 0 30" />
+
+                            <!-- Login button -->
+                            <Button Content="Connection" 
+                                    IsDefault="True"
+                                    Command="{Binding LoginCommand}"
+                                    CommandParameter="{Binding ElementName=Page}" 
+                                    HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</Page>

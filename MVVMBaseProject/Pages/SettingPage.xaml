@@ -1,0 +1,94 @@
+﻿<Page x:Class="MVVMBaseProject.SettingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MVVMBaseProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="500"
+      Title="SettingPage">
+
+    <Border Background="{StaticResource BackgroundLightBrush}" 
+            CornerRadius="0 4 4 0"
+            Width="410"
+            HorizontalAlignment="Left">
+        <Grid>
+            <!-- Main content scroll -->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <StackPanel 
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    TextBlock.TextAlignment="Left">
+
+                    <!-- Switch button-->
+
+                    <Button Content="="
+                                    Command="{Binding ShowSettingsCommand}"
+                                    FontSize="{StaticResource FontSizeRegular}" 
+                                    FontFamily="{StaticResource FontRegular}"
+                                    Padding="10 0"
+                                    Margin="2"
+                                    HorizontalAlignment="Right"/>
+
+                    <!-- Settings main content white box -->
+                    <Border Background="{StaticResource ForegroundLightBrush}" 
+                            CornerRadius="0 4 4 0"
+                            Padding="15 15 15 15"
+                            Width="400"
+                            Margin="0 10 10 0">
+
+                        <StackPanel Orientation="Vertical">
+                            
+
+                            <!-- Settings header -->
+                            <TextBlock Text="Paramètres" 
+                                   FontSize="{StaticResource FontSizeLarge}" 
+                                   FontFamily="{StaticResource FontRegular}"
+                                   Foreground="{StaticResource BackgroundBlueBrush}" />
+
+                            <!-- Settings subtext-->
+                            <TextBlock Text="Général" 
+                                       FontSize="{StaticResource FontSizeRegular}"
+                                       Foreground="{StaticResource ForegroundDarkBrush}"
+                                       Margin="0 0 0 20"
+                                       />
+
+                            <!-- Environnement -->
+                            <TextBlock  Text="Environnement :" 
+                                        FontSize="{StaticResource FontSizeSmall}"
+                                         Foreground="{StaticResource ForegroundVeryDarkBrush}"/>
+                            <TextBox    Text="" 
+                                        Tag="" 
+                                        FontSize="{StaticResource FontSizeSmaller}"
+                                        Padding="5 0"/>
+
+                            <!-- Mot de passe administrateur -->
+                            <TextBlock  Text="Mot de passe Administrateur :" 
+                                        FontSize="{StaticResource FontSizeSmall}"
+                                        Margin="0 10 0 0"/>
+                            <PasswordBox x:Name="RootPwdText"
+                                         Tag="" 
+                                         FontSize="{StaticResource FontSizeSmaller}"
+                                         Margin="0 0 0 30" 
+                                         Padding="5 0"/>
+
+                            <ComboBox>
+                                <ComboBoxItem Content="Prog" />
+                                <ComboBoxItem Content="Recet"/>
+                                <ComboBoxItem Content="Pub"/>
+                            </ComboBox>
+                            
+                            <!-- Validation button -->
+                            <Button Content="Valider" 
+                                    IsDefault="True"
+                                    Command="{Binding SettingsCommand}"
+                                    CommandParameter="{Binding ElementName=Page}" 
+                                    HorizontalAlignment="Center"
+                                    FontSize="{StaticResource FontSizeSmall}"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</Page>
